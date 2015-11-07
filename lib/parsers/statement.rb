@@ -26,7 +26,7 @@ module Ruhax
           @content << parse
 
         # Method call
-      elsif is_symbol && !@has_node
+        elsif is_symbol && !@has_node
           str = ""
           case child
           when :puts, :print
