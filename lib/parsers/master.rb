@@ -10,8 +10,8 @@ module Ruhax
       case node.type
       when :send
         parser = StatementParser.new(node)
-      when :str
-        parser = StringParser.new(node)
+      when :str, :int, :float, :true, :false
+        parser = BaseTypeParser.new(node, node.type)
       else
         raise "Unsupported type " + node.type.to_s
       end

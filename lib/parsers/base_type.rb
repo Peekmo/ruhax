@@ -1,7 +1,8 @@
 module Ruhax
-  class StringParser < MasterParser
-    def initialize(node)
+  class BaseTypeParser < MasterParser
+    def initialize(node, type)
       @content = ""
+      @type = type
       @node = node
     end
 
@@ -14,6 +15,10 @@ module Ruhax
     end
 
     def to_s
+      if @type == :str
+        return "\"#{@content}\""
+      end
+      
       @content
     end
   end
