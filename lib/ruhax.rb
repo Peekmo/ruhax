@@ -7,7 +7,7 @@ require './parsers/args'
 
 node = Parser::CurrentRuby.parse("
   def self.main
-    puts 'Hello world'
+    puts 'hello'
   end
 ")
 
