@@ -4,11 +4,11 @@ module Ruhax
   class MasterParser
     # Constructor
     def initialize
-      @content = ""
     end
 
     # Parse the given node
     def parse_new_node(node)
+      content = ""
       parser = nil
 
       case node.type
@@ -16,7 +16,15 @@ module Ruhax
       when :send
         parser = StatementParser.new(node)
 
-      # Basic type
+      # Function args
+      when :args
+        parser = ArgsParser.new(node)
+
+      # Function declaration
+      when :def
+        parser = FunctionParser.new(node)
+
+      # Basic types
       when :str, :int, :float, :true, :false
         parser = BaseTypeParser.new(node, node.type)
 
@@ -24,10 +32,10 @@ module Ruhax
       when :begin
         node.children.each do |child|
           parser = MasterParser.new
-          @content << parser.parse_new_node(child) << "\n"
+          content << parser.parse_new_node(child) << "\n"
         end
 
-        return @content
+        return content
 
       # Else, error
       else
