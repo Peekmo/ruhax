@@ -6,11 +6,9 @@ require './parsers/function'
 require './parsers/args'
 
 node = Parser::CurrentRuby.parse("
-  def main
+  def self.main
     puts 'Hello world'
   end
-
-  main
 ")
 
 p node

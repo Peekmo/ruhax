@@ -5,6 +5,7 @@ module Ruhax
     def initialize(node)
       @content = ""
       @node = node
+      @is_static = false
     end
 
     def parse
@@ -17,7 +18,20 @@ module Ruhax
 
       # @TODO visibility
       name = children.shift
-      @content << "public function " << name.to_s
+      if name.is_a?(AST::Node)
+        if name.type == :self
+          name = children.shift
+          @is_static = true
+        else
+          raise "Unknown method type " << name.type.to_s
+        end
+      end
+
+      if @is_static
+        @content = "public static function " << name.to_s
+      else
+        @content = "public function " << name.to_s
+      end
 
       children.each do |child|
         is_node = child.is_a? AST::Node

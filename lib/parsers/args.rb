@@ -11,6 +11,23 @@ module Ruhax
       if @node.children.length == 0
         return
       end
+
+      @node.children.each_with_index do |child, index|
+        if child.children.length == 0
+          return
+        end
+
+        variable, default_value = child.children
+        @content << variable.to_s
+
+        if child.type == :optarg && default_value
+          @content << " = " << parse_new_node(default_value)
+        end
+
+        if index != @node.children.length - 1
+          @content << ", "
+        end
+      end
     end
 
     def to_s

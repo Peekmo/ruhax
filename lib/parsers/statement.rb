@@ -15,14 +15,14 @@ module Ruhax
         return
       end
 
-      @node.children.each do |child|
+      @node.children.each_with_index do |child, index|
         is_symbol = child.is_a? Symbol
 
         # New node
         if child.is_a? AST::Node
           @has_node = true
 
-          parse ||= parse_new_node child
+          parse = parse_new_node child
           @content << parse
 
         # Method call
@@ -35,8 +35,14 @@ module Ruhax
             str = child.to_s
           end
 
-          @content << str << "("
-          @is_method = true
+          @content << str
+          if index != @node.children.length - 1
+            # is method
+            if @node.children[index+1].is_a? AST::Node
+               @content << "("
+              @is_method = true
+            end
+          end
 
         elsif is_symbol && @has_node
           @content << " " << child.to_s << " "

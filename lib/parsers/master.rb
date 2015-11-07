@@ -21,11 +21,11 @@ module Ruhax
         parser = ArgsParser.new(node)
 
       # Function declaration
-      when :def
+    when :def, :defs
         parser = FunctionParser.new(node)
 
       # Basic types
-      when :str, :int, :float, :true, :false
+      when :str, :int, :float, :true, :false, :nil
         parser = BaseTypeParser.new(node, node.type)
 
       # Blocks

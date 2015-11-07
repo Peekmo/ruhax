@@ -12,19 +12,18 @@ module Ruhax
 
     # Parse the node
     def parse
-      if @node.children.length == 0
-        return
+      case @type
+      when :nil
+        @content = "null"
+      when :str
+        @content << "\"" << @node.children[0].to_s << "\""
+      else
+        @content = @node.children[0].to_s
       end
-
-      @content = @node.children[0].to_s
     end
 
     # Transform it to string
     def to_s
-      if @type == :str
-        return "\"#{@content}\""
-      end
-
       @content
     end
   end
