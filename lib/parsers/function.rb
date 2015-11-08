@@ -35,13 +35,19 @@ module Ruhax
         end
       end
 
+      # Transform 'initialize' into 'new' (haxe keyword)
+      if @name == :initialize
+        @options[:has_constructor] = true
+        @name = :new
+      end
+
       children.each do |child|
         is_node = child.is_a? AST::Node
 
         if is_node && child.type == :args
           @args = parse_new_node(child)
           @options[:locale_variables] = @args.variables
-        else
+        elsif is_node
           @content << parse_new_node(child, @options).to_s
         end
       end

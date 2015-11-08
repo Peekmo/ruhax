@@ -5,7 +5,8 @@ module Ruhax
       @options = {
         current_class: nil,
         instance_variables: [],
-        static_variables: []
+        static_variables: [],
+        has_constructor: false
       }
 
       @inherit = ""
