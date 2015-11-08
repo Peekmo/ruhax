@@ -5,7 +5,7 @@ module Ruhax
       @options = {
         current_class: nil,
         instance_variables: [],
-        class_variables: []
+        static_variables: []
       }
 
       @inherit = ""
@@ -43,11 +43,11 @@ module Ruhax
       data << "{\n"
 
       @options[:instance_variables].each do |v|
-        data << "public var " << v << ";\n"
+        data << "public var " << v << " : Dynamic;\n"
       end
 
-      @options[:class_variables].each do |v|
-        data << "public static var " << v << ";\n"
+      @options[:static_variables].each do |v|
+        data << "public static var " << v << " : Dynamic;\n"
       end
 
       data << @content

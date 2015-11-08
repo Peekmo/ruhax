@@ -25,9 +25,9 @@ module Ruhax
       # 'cause it's a frozen array
       children = @node.children.dup
 
-      name = children.shift
-      if name.is_a?(AST::Node)
-        if name.type == :self
+      @name = children.shift
+      if @name.is_a?(AST::Node)
+        if @name.type == :self
           @name = children.shift
           @is_static = true
         else
