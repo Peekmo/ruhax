@@ -4,10 +4,13 @@ require './parsers/base_type'
 require './parsers/call'
 require './parsers/function'
 require './parsers/args'
+require './parsers/var'
 
 node = Parser::CurrentRuby.parse("
   def self.main()
-    puts 'hello world'
+    my_name = 'hello world'
+    my_name = 'hello guys'
+    puts my_name
   end
 ")
 

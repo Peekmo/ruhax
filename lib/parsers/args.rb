@@ -1,10 +1,13 @@
 module Ruhax
   # Parse function's args
   class ArgsParser < MasterParser
+    attr_reader :variables
+    
     # constructor
     def initialize(node)
       @node = node
       @content = ""
+      @variables = []
     end
 
     def parse
@@ -18,6 +21,7 @@ module Ruhax
         end
 
         variable, default_value = child.children
+        @variables.push variable.to_s
         @content << variable.to_s
 
         if child.type == :optarg && default_value

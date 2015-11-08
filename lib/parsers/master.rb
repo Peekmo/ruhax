@@ -14,11 +14,19 @@ module Ruhax
       case node.type
       # Any function call
       when :send
-        parser = CallParser.new(node)
+        parser = CallParser.new(node, options)
 
       # Function args
       when :args
         parser = ArgsParser.new(node)
+
+      # Assign var
+      when :lvasgn
+        parser = VarParser.new(node, options)
+
+      when :lvar
+        return unless node.children.length > 0
+        return node.children[0].to_s
 
       # Function declaration
       when :def, :defs
@@ -32,7 +40,7 @@ module Ruhax
       when :begin
         node.children.each do |child|
           parser = MasterParser.new
-          content << parser.parse_new_node(child).to_s << "\n"
+          content << parser.parse_new_node(child, options).to_s << "\n"
         end
 
         return content

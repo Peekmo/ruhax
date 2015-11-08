@@ -4,7 +4,7 @@ module Ruhax
     @@is_in_function_call = false
 
     # Constructor
-    def initialize(node)
+    def initialize(node, options = {})
       @node = node
       @content = ""
       @is_method = false

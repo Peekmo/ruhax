@@ -9,6 +9,7 @@ module Ruhax
       @node = node
       @is_static = false
       @args = ""
+      @variables = []
 
       @visibility = options.has_key?(:visibility) ? options[:visibility] : "public"
     end
@@ -37,8 +38,9 @@ module Ruhax
 
         if is_node && child.type == :args
           @args = parse_new_node(child)
+          @variables = @args.variables
         else
-          @content << parse_new_node(child).to_s
+          @content << parse_new_node(child, {local_variables: @variables}).to_s
         end
       end
     end
