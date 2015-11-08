@@ -1,13 +1,13 @@
 require 'parser/current'
 require './parsers/master'
 require './parsers/base_type'
-require './parsers/statement'
+require './parsers/call'
 require './parsers/function'
 require './parsers/args'
 
 node = Parser::CurrentRuby.parse("
-  def self.main
-    puts 'hello'
+  def self.main()
+    puts 'hello world'
   end
 ")
 
@@ -18,7 +18,7 @@ print <<eos
 eos
 
 parser = Ruhax::MasterParser.new
-puts parser.parse_new_node node
+puts parser.parse_new_node(node).to_s
 
 print <<eos
 }

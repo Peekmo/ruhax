@@ -21,7 +21,7 @@ module Ruhax
         @content << variable.to_s
 
         if child.type == :optarg && default_value
-          @content << " = " << parse_new_node(default_value)
+          @content << " = " << parse_new_node(default_value).to_s
         end
 
         if index != @node.children.length - 1

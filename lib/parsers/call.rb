@@ -1,6 +1,6 @@
 module Ruhax
   # Parse everything that starts with 'send'
-  class StatementParser < MasterParser
+  class CallParser < MasterParser
     @@is_in_function_call = false
 
     # Constructor
@@ -30,7 +30,7 @@ module Ruhax
             @@is_in_function_call = true
           end
 
-          parse = parse_new_node child
+          parse = parse_new_node(child).to_s
           @content << parse
 
           if @is_method && index != @node.children.length - 1
