@@ -51,8 +51,11 @@ module Ruhax
         data << "public static var " << v << " : Dynamic;\n"
       end
 
-      data << @content
+      if !@options[:has_constructor]
+        data << "public function new() {}\n"
+      end
 
+      data << @content
       data << "\n}"
     end
   end

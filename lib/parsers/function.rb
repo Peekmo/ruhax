@@ -9,7 +9,8 @@ module Ruhax
       @node = node
       @is_static = false
       @args = ""
-      @options = options.merge({
+      @options = options
+      @locale_options = @options.merge({
         'locale_variables': []
       })
 
@@ -46,9 +47,9 @@ module Ruhax
 
         if is_node && child.type == :args
           @args = parse_new_node(child)
-          @options[:locale_variables] = @args.variables
+          @locale_options[:locale_variables] = @args.variables
         elsif is_node
-          @content << parse_new_node(child, @options).to_s
+          @content << parse_new_node(child, @locale_options).to_s
         end
       end
     end

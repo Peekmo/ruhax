@@ -12,9 +12,6 @@
 # }
 
 class Test
-  def initialize
-  end
-
   def my_function(arg1, arg2, optarg = 3)
     my_var = arg2 + arg1
     arg1 = 10
