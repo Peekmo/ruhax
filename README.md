@@ -2,6 +2,21 @@
 
 Pur ruby code compiled into haxe code
 
+## Example
+
+You can play examples from "examples" folder e.g :
+```bin/console build --src examples/hello_world.rb```
+
+And... magic ! You should see something like that
+```haxe
+class Main{
+public static function main() {
+trace("Hello World");
+}
+
+}
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

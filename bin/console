@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "ruhax"
+require "cli"
 
-require "irb"
-IRB.start
+Ruhax::RuhaxCli.start(ARGV)
+
+# require "irb"
+# IRB.start
