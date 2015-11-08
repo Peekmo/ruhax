@@ -42,7 +42,7 @@ module Ruhax
         data << " < " << @inherit
       end
       data << "{\n"
-      p @options
+
       @options[:instance_variables].each do |k, v|
         data << "public var " << v.name
 
