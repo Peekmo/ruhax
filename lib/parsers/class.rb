@@ -4,8 +4,8 @@ module Ruhax
       @node = node
       @options = {
         current_class: nil,
-        instance_variables: [],
-        static_variables: [],
+        instance_variables: {},
+        static_variables: {},
         has_constructor: false
       }
 
@@ -42,13 +42,33 @@ module Ruhax
         data << " < " << @inherit
       end
       data << "{\n"
+      p @options
+      @options[:instance_variables].each do |k, v|
+        data << "public var " << v.name
 
-      @options[:instance_variables].each do |v|
-        data << "public var " << v << " : Dynamic;\n"
+        if v.value
+          data << " = " << v.value
+        elsif v.type
+          data << " : " << v.type
+        else
+          data << " : Dynamic"
+        end
+
+        data << ";\n"
       end
 
-      @options[:static_variables].each do |v|
-        data << "public static var " << v << " : Dynamic;\n"
+      @options[:static_variables].each do |k, v|
+        data << "public static var " << v.name
+
+        if v.value
+          data << " = " << v.value
+        elsif v.type
+          data << " : " << v.type
+        else
+          data << " : Dynamic"
+        end
+
+        data << ";\n"
       end
 
       if !@options[:has_constructor]

@@ -44,7 +44,9 @@ module Ruhax
       when :begin
         node.children.each do |child|
           parser = MasterParser.new
-          content << parser.parse_new_node(child, options).to_s << "\n"
+          result = parser.parse_new_node(child, options).to_s
+
+          content << result << "\n" if result.length > 0
         end
 
         return content

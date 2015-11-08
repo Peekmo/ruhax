@@ -11,7 +11,8 @@ module Ruhax
       @args = ""
       @options = options
       @locale_options = @options.merge({
-        'locale_variables': []
+        'locale_variables': {},
+        'in_function': true
       })
 
       @visibility = options.has_key?(:visibility) ? options[:visibility] : "public"

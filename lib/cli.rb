@@ -7,6 +7,7 @@ require 'parsers/function'
 require 'parsers/args'
 require 'parsers/var'
 require 'parsers/class'
+require 'models/var'
 
 module Ruhax
   class RuhaxCli < Thor
