@@ -1,6 +1,6 @@
 # class Test{
 #   public var final_score : Dynamic;
-#   public static var static_var;
+#   public static var static_var = 0;
 #   public function new() {}
 #   public function my_function(arg1, arg2, optarg = 3) {
 #     var my_var = arg2 + arg1;
