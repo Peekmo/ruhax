@@ -51,6 +51,32 @@ module Ruhax
 
         return content
 
+      # x += z
+      when :op_asgn
+        if node.children.length != 3
+          return
+        end
+
+        content = ""
+        node.children.each_with_index do |child, k|
+          if child.is_a? AST::Node
+            parser = MasterParser.new
+            result = parser.parse_new_node(child, options.merge({
+              op_asgn: true
+            })).to_s
+          else
+            result = child.to_s
+          end
+
+          content << result
+          if k == 1
+            content << "="
+          end
+        end
+
+        content << ";"
+        return content
+
       # Else, error
       else
         raise "Unsupported type " + node.type.to_s

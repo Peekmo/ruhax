@@ -30,8 +30,9 @@ module Ruhax
           @content << "var "
         end
 
-        @content << var_name << " = "
+        @content << var_name
         current_var = @locale_variables[var_name.to_sym]
+
       # instance variables
       when :ivasgn
         var_name = var_name[1.. var_name.length-1]
@@ -40,7 +41,7 @@ module Ruhax
         end
 
         if @in_function
-          @content << "this." << var_name << " = "
+          @content << "this." << var_name
         end
         current_var = @instance_variables[var_name.to_sym]
 
@@ -56,7 +57,7 @@ module Ruhax
         end
 
         if @in_function
-          @content << @current_class << "." << var_name << " = "
+          @content << @current_class << "." << var_name
         end
         current_var = @static_variables[var_name.to_sym]
 
@@ -65,9 +66,12 @@ module Ruhax
       end
 
       value = ""
-      children.each {|child| value << parse_new_node(child, @options).to_s}
+      if children.length > 0
+        @content << " = " if @in_function
+        children.each {|child| value << parse_new_node(child, @options).to_s}
+      end
 
-      if @in_function
+      if @in_function && !@options[:op_asgn]
         @content << value << ";"
       elsif current_var
         current_var.value = value
