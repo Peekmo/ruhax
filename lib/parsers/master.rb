@@ -62,7 +62,7 @@ module Ruhax
           if child.is_a? AST::Node
             parser = MasterParser.new
             result = parser.parse_new_node(child, options.merge({
-              op_asgn: true
+              get_value: true
             })).to_s
           else
             result = child.to_s
