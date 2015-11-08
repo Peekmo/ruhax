@@ -14,11 +14,11 @@ module Ruhax
       end
 
       children = @node.children.dup
+      var_name = children.shift.to_s
 
       case @node.type
+      # locale variable
       when :lvasgn
-        var_name = children.shift.to_s
-
         # Add 'var' keyword if it's a new var
         if !@variables.include? var_name
           @variables.push var_name
@@ -26,12 +26,14 @@ module Ruhax
         end
 
         @content << var_name << " = "
-
-        children.each {|child| @content << parse_new_node(child, @options).to_s}
-        @content << ";"
+      when :ivasgn
+        @content << "this." << var_name[1.. var_name.length-1] << " = "
       else
         @content << parse_new_node(node, @options).to_s
       end
+
+      children.each {|child| @content << parse_new_node(child, @options).to_s}
+      @content << ";"
     end
 
     def to_s

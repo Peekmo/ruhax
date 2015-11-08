@@ -21,10 +21,10 @@ module Ruhax
         parser = ArgsParser.new(node)
 
       # Assign var
-      when :lvasgn
+      when :lvasgn, :ivasgn
         parser = VarParser.new(node, options)
 
-      when :lvar
+      when :lvar, :ivar
         return unless node.children.length > 0
         return node.children[0].to_s
 
