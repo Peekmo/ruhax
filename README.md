@@ -1,5 +1,7 @@
 # Ruhax
 
+[![Join the chat at https://gitter.im/Peekmo/ruhax](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Peekmo/ruhax?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Pur ruby code compiled into haxe code
 
 ## Example
