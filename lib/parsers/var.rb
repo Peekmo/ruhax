@@ -71,9 +71,9 @@ module Ruhax
         children.each {|child| value << parse_new_node(child, @options).to_s}
       end
 
-      if @in_function && !@options[:get_value]
+      if @in_function && !@options[:no_value]
         @content << value << ";"
-      elsif current_var
+      elsif current_var && !@options[:no_value]
         current_var.value = value
       end
     end

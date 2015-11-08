@@ -53,29 +53,7 @@ module Ruhax
 
       # x += z
       when :op_asgn
-        if node.children.length != 3
-          return
-        end
-
-        content = ""
-        node.children.each_with_index do |child, k|
-          if child.is_a? AST::Node
-            parser = MasterParser.new
-            result = parser.parse_new_node(child, options.merge({
-              get_value: true
-            })).to_s
-          else
-            result = child.to_s
-          end
-
-          content << result
-          if k == 1
-            content << "="
-          end
-        end
-
-        content << ";"
-        return content
+        parser = CombinedOperatorParser.new(node, options)
 
       # Else, error
       else

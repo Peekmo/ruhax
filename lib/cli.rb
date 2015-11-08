@@ -7,6 +7,7 @@ require 'parsers/function'
 require 'parsers/args'
 require 'parsers/var'
 require 'parsers/class'
+require 'parsers/combined_operator'
 require 'models/var'
 
 module Ruhax
@@ -23,7 +24,7 @@ module Ruhax
         p node
         puts "*********************"
       end
-      
+
       parser = Ruhax::MasterParser.new
       puts parser.parse_new_node(node).to_s
     end
