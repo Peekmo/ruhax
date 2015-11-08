@@ -40,7 +40,7 @@ module Ruhax
           @args = parse_new_node(child)
           @variables = @args.variables
         else
-          @content << parse_new_node(child, {local_variables: @variables}).to_s
+          @content << parse_new_node(child, {locale_variables: @variables}).to_s
         end
       end
     end

@@ -21,7 +21,7 @@ module Ruhax
         parser = ArgsParser.new(node)
 
       # Assign var
-      when :lvasgn, :ivasgn
+      when :lvasgn, :ivasgn, :cvasgn
         parser = VarParser.new(node, options)
 
       when :lvar, :ivar

@@ -9,7 +9,6 @@ require './parsers/var'
 node = Parser::CurrentRuby.parse("
   def self.main()
     my_name = 'hello world'
-    @x = 5
     puts my_name
   end
 ")
