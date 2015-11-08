@@ -9,7 +9,9 @@ module Ruhax
       @node = node
       @is_static = false
       @args = ""
-      @variables = []
+      @options = options.merge({
+        'locale_variables': []
+      })
 
       @visibility = options.has_key?(:visibility) ? options[:visibility] : "public"
     end
@@ -38,9 +40,9 @@ module Ruhax
 
         if is_node && child.type == :args
           @args = parse_new_node(child)
-          @variables = @args.variables
+          @options[:locale_variables] = @args.variables
         else
-          @content << parse_new_node(child, {locale_variables: @variables}).to_s
+          @content << parse_new_node(child, @options).to_s
         end
       end
     end

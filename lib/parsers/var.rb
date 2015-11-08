@@ -32,23 +32,25 @@ module Ruhax
 
       # instance variables
       when :ivasgn
-        if !@instance_variables.include? var_name
-          @instance_variables.push var_name
+        vname = var_name[1.. var_name.length-1]
+        if !@instance_variables.include? vname
+          @instance_variables.push vname
         end
 
-        @content << "this." << var_name[1.. var_name.length-1] << " = "
+        @content << "this." << vname << " = "
 
       # static variables
       when :cvasgn
-        if !@static_variables.include? var_name
-          @static_variables.push var_name
+        vname = var_name[2.. var_name.length-1]
+        if !@static_variables.include? vname
+          @static_variables.push vname
         end
 
         if @current_class == nil
           raise "Class variable called in non class context"
         end
 
-        @content << @current_class << "." << var_name[2.. var_name.length-1] << " = "
+        @content << @current_class << "." << vname << " = "
       else
         @content << parse_new_node(node, @options).to_s
       end

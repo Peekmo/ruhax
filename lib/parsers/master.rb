@@ -20,6 +20,10 @@ module Ruhax
       when :args
         parser = ArgsParser.new(node)
 
+      # Class declaration
+      when :class
+        parser = ClassParser.new(node)
+
       # Assign var
       when :lvasgn, :ivasgn, :cvasgn
         parser = VarParser.new(node, options)
