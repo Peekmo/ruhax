@@ -39,9 +39,9 @@ module Ruhax
     def to_s
       data = "class " << @options[:current_class]
       if @inherit.length > 0
-        data << " < " << @inherit
+        data << " extends " << @inherit
       end
-      data << "{\n"
+      data << " {\n"
 
       @options[:instance_variables].each do |k, v|
         data << "public var " << v.name
