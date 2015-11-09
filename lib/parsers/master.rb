@@ -42,19 +42,7 @@ module Ruhax
 
       # Blocks
       when :begin
-        node.children.each_with_index do |child, index|
-          parser = MasterParser.new
-          result = parser.parse_new_node(child, options).to_s
-
-          if index == node.children.length - 1 && options[:in_function]
-            content << "return "
-          end
-
-          result << ";" if result[-1] != ";" && options[:in_function]
-          content << result << "\n" if result.length > 0
-        end
-
-        return content
+        parser = BeginParser.new(node, options)
 
       # x += z
       when :op_asgn
