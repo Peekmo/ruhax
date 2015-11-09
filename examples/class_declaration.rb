@@ -9,6 +9,7 @@
 #     Test.static_var = 5;
 #     Test.static_var -=1;
 #     this.final_score = my_var;
+#     return my_var;
 #   }
 # }
 
@@ -24,6 +25,6 @@ class Test
 
     @final_score = my_var
 
-    return my_var
+    my_var
   end
 end
