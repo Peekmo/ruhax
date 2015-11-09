@@ -8,6 +8,7 @@ require 'parsers/args'
 require 'parsers/var'
 require 'parsers/class'
 require 'parsers/combined_operator'
+require 'parsers/return'
 require 'models/var'
 
 module Ruhax

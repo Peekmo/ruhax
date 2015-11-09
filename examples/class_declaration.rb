@@ -23,5 +23,7 @@ class Test
     @@static_var -= 1
 
     @final_score = my_var
+
+    return my_var
   end
 end

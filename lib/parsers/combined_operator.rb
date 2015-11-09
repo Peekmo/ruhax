@@ -1,5 +1,6 @@
 module Ruhax
-  class CombinedOperatorParser
+  # Operators += -= *= etc...
+  class CombinedOperatorParser < MasterParser
     def initialize(node, options)
       @node = node
       @options = options
@@ -13,8 +14,7 @@ module Ruhax
 
       @node.children.each_with_index do |child, k|
         if child.is_a? AST::Node
-          parser = MasterParser.new
-          result = parser.parse_new_node(child, @options.merge({
+          result = parse_new_node(child, @options.merge({
             no_value: true
           })).to_s
         else

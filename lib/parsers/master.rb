@@ -55,6 +55,10 @@ module Ruhax
       when :op_asgn
         parser = CombinedOperatorParser.new(node, options)
 
+      # return ....
+      when :return
+        parser = ReturnParser.new(node, options)
+
       # Else, error
       else
         raise "Unsupported type " + node.type.to_s
