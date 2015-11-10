@@ -1,5 +1,9 @@
 module Ruhax
-  # Parse everything that starts with 'send'
+  ###
+  # Parse 'send' token
+  #
+  # Every function call or expression will enter in that parser
+  ###
   class CallParser < MasterParser
     @@is_in_function_call = false
 
@@ -11,7 +15,9 @@ module Ruhax
       @has_node = false
     end
 
-    # Parse the node
+    ###
+    # Process parsing
+    ###
     def parse
       if @node.children.length == 0
         return
@@ -68,7 +74,9 @@ module Ruhax
       end
     end
 
-    # Returns the content
+    ###
+    # Return string value of the parser
+    ###
     def to_s
       @content
     end

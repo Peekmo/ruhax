@@ -1,5 +1,9 @@
 module Ruhax
-  # Operators += -= *= etc...
+  ###
+  # Parse "combined operators"
+  #
+  # It means, all that kind of operators : +=, -=
+  ###
   class CombinedOperatorParser < MasterParser
     def initialize(node, options)
       @node = node
@@ -7,6 +11,9 @@ module Ruhax
       @content = ""
     end
 
+    ###
+    # Process parsing
+    ###
     def parse
       if @node.children.length != 3
         return
@@ -30,6 +37,9 @@ module Ruhax
       @content << ";"
     end
 
+    ###
+    # Return string value of the parser
+    ###
     def to_s
       @content
     end

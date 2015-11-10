@@ -1,4 +1,12 @@
 module Ruhax
+  ###
+  # Parse all kind of variable
+  #
+  # Registers in options :
+  # - locale_variables
+  # - instance_variables (@)
+  # - static_variables (@@)
+  ###
   class VarParser < MasterParser
     def initialize(node, options = {})
       @options = options
@@ -12,6 +20,9 @@ module Ruhax
       @current_class = @options.has_key?(:current_class) ? @options[:current_class] : nil
     end
 
+    ###
+    # Process parsing
+    ###
     def parse
       if @node.children.length == 0
         return
@@ -78,6 +89,9 @@ module Ruhax
       end
     end
 
+    ###
+    # Return string value of the parser
+    ###
     def to_s
       @content
     end

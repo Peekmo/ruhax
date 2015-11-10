@@ -1,5 +1,10 @@
 module Ruhax
-  # Parse function's args
+  ###
+  # Parse arguments from a function
+  #
+  # Register all this arguments into "locale_variables" of the function's
+  # options
+  ###
   class ArgsParser < MasterParser
     attr_reader :variables
 
@@ -10,6 +15,9 @@ module Ruhax
       @variables = {}
     end
 
+    ###
+    # Process parsing
+    ###
     def parse
       if @node.children.length == 0
         return
@@ -34,6 +42,9 @@ module Ruhax
       end
     end
 
+    ###
+    # Return string value of the parser
+    ###
     def to_s
       @content
     end

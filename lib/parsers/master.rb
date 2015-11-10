@@ -1,6 +1,9 @@
 module Ruhax
-  # Most important parser
-  # Every parser should inherit from it
+  ###
+  # Entry point and class from which every other parser must inherit
+  #
+  # Call the right parser for the given node and returns the parser
+  ###
   class MasterParser
     # Constructor
     def initialize
@@ -8,7 +11,6 @@ module Ruhax
 
     # Parse the given node
     def parse_new_node(node, options = {})
-      content = ""
       parser = nil
 
       case node.type

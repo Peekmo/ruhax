@@ -1,4 +1,11 @@
 module Ruhax
+  ###
+  # This parser will translate a block of multiple instructions
+  #
+  # It does not output anything except its children's content
+  # Set :no_new_lines options to don't get a new line between each children's
+  # instructions
+  ###
   class BeginParser < MasterParser
     def initialize(node, options)
       @node = node
@@ -6,6 +13,9 @@ module Ruhax
       @content = ""
     end
 
+    ###
+    # Process parsing
+    ###
     def parse
       need_semilicon = (@options[:in_function] && !@options[:no_new_lines]) ||
         (!@options[:in_function] && !@options[:current_class] && !@options[:no_new_lines])
@@ -25,6 +35,9 @@ module Ruhax
       end
     end
 
+    ###
+    # Return string value of the parser
+    ###
     def to_s
       @content
     end

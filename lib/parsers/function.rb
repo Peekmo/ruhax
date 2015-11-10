@@ -1,5 +1,10 @@
 module Ruhax
-  # Parse "def"
+  ###
+  # Parse a function declaration
+  #
+  # It takes care of to do not have the same locale variable declaration
+  # The function called "initialize" will be translated into "new"
+  ###
   class FunctionParser < MasterParser
     attr_reader :visibility
 
@@ -68,7 +73,9 @@ module Ruhax
       end
     end
 
-    # Write function
+    ###
+    # Return string value of the parser
+    ###
     def to_s
       if @is_static
         data = @visibility << " static function " << @name.to_s

@@ -1,4 +1,10 @@
 module Ruhax
+  ###
+  # Parse a class declaration
+  #
+  # It builds all its options by giving them to its children.
+  # The function to_s will build the final content
+  ###
   class ClassParser < MasterParser
     def initialize(node)
       @node = node
@@ -13,6 +19,9 @@ module Ruhax
       @content = ""
     end
 
+    ###
+    # Process parsing
+    ###
     def parse
       if @node.children.length == 0
         return
@@ -36,6 +45,9 @@ module Ruhax
       end
     end
 
+    ###
+    # Return string value of the parser
+    ###
     def to_s
       data = "class " << @options[:current_class]
       if @inherit.length > 0

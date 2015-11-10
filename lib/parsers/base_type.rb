@@ -1,5 +1,9 @@
 module Ruhax
-  # Parser for all basic types
+  ###
+  # Parse basic types as str, int, float, nil
+  #
+  # Note : nil will be translated into null
+  ###
   class BaseTypeParser < MasterParser
     # Constructor
     # @param node AST::Node node to parse
@@ -10,7 +14,9 @@ module Ruhax
       @node = node
     end
 
-    # Parse the node
+    ###
+    # Process parsing
+    ###
     def parse
       case @type
       when :nil
@@ -22,7 +28,9 @@ module Ruhax
       end
     end
 
-    # Transform it to string
+    ###
+    # Return string value of the parser
+    ###
     def to_s
       @content
     end

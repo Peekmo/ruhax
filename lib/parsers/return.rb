@@ -1,4 +1,7 @@
 module Ruhax
+  ###
+  # Parse the :return token
+  ###
   class ReturnParser < MasterParser
     def initialize(node, options)
       @node = node
@@ -6,6 +9,9 @@ module Ruhax
       @content = ""
     end
 
+    ###
+    # Process parsing
+    ###
     def parse
       @content << "return"
 
@@ -22,6 +28,9 @@ module Ruhax
       @content << ";"
     end
 
+    ###
+    # Return string value of the parser
+    ###
     def to_s
       @content
     end

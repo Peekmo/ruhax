@@ -1,4 +1,9 @@
 module Ruhax
+  ###
+  # String concatenation happens here.
+  #
+  # ATM, just "#{myvar}" or "ok" + "ok" are working
+  ###
   class StrConcatParser < MasterParser
     def initialize(node, options)
       @node = node
@@ -6,6 +11,9 @@ module Ruhax
       @content = ""
     end
 
+    ###
+    # Process parsing
+    ###
     def parse
       @node.children.each do |child|
         result = parse_new_node(child, @options.merge({
@@ -20,6 +28,9 @@ module Ruhax
       end
     end
 
+    ###
+    # Return string value of the parser
+    ###
     def to_s
       @content
     end
