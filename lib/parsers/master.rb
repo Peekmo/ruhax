@@ -52,6 +52,10 @@ module Ruhax
       when :return
         parser = ReturnParser.new(node, options)
 
+      # String interpolation
+      when :dstr
+        parser = StrConcatParser.new(node, options)
+
       # Else, error
       else
         raise "Unsupported type " + node.type.to_s

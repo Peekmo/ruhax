@@ -23,6 +23,8 @@ class Test
     @@static_var = 5
     @@static_var -= 1
 
+    interpol = "test #{arg1} interpolation"
+
     @final_score = my_var
 
     my_var

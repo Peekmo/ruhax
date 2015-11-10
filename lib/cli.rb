@@ -10,6 +10,7 @@ require 'parsers/class'
 require 'parsers/combined_operator'
 require 'parsers/return'
 require 'parsers/begin'
+require 'parsers/str_concat'
 require 'models/var'
 
 module Ruhax
