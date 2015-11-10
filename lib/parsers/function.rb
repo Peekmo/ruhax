@@ -50,7 +50,20 @@ module Ruhax
           @args = parse_new_node(child)
           @locale_options[:locale_variables] = @args.variables
         elsif is_node
+          has_block = false
+          if child.type == :begin
+            has_block = true
+          end
+
+          if !has_block
+            @content << "return "
+          end
+
           @content << parse_new_node(child, @locale_options).to_s
+
+          if !has_block
+            @content << ";"
+          end
         end
       end
     end

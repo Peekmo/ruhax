@@ -9,6 +9,7 @@
 #     Test.static_var = 5;
 #     Test.static_var -=1;
 #     this.final_score = my_var;
+#     var interpol = "test " + arg1 + " interpolation";
 #     return my_var;
 #   }
 # }
