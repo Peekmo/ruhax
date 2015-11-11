@@ -49,10 +49,9 @@ class Test
   end
 
   def regexp
-    value = "ok"
-    regexp = /^test#{value}/im
-    regexp = /#{value}/im
-    regexp = /^#{value}test/im
-    regexp = /^test#{value}test/im
+    regexp = /^test#{@final_score}/im
+    regexp = /#{@final_score}/im
+    regexp = /^#{@final_score}test/im
+    regexp = /^test#{@final_score}test/im
   end
 end
