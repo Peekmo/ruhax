@@ -58,6 +58,10 @@ module Ruhax
       when :dstr, :dsym
         parser = StrConcatParser.new(node, options)
 
+      # Executable string
+      when :xstr
+        parser = ExecStringParser.new(node, options)
+
       # Else, error
       else
         raise "Unsupported type " + node.type.to_s
