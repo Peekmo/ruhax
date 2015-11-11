@@ -18,11 +18,10 @@
 #   }
 #
 #   public function regexp() {
-#     var value = "ok";
-#     var regexp = new EReg("^test" + value,"im");
-#     regexp = new EReg(value,"im");
-#     regexp = new EReg("^" + value + "test","im");
-#     return regexp = new EReg("^test" + value + "test","im");
+#     var regexp = new EReg("^test" + this.final_score,"im");
+#     regexp = new EReg(this.final_score,"im");
+#     regexp = new EReg("^" + this.final_score + "test","im");
+#     return regexp = new EReg("^test" + this.final_score + "test","im");
 #   }
 # }
 
