@@ -30,6 +30,6 @@ class Test
 
     @final_score = my_var
 
-    my_var
+    [5, my_var, "string"]
   end
 end

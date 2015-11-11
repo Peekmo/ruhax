@@ -12,6 +12,7 @@ require 'ruhax/parsers/return'
 require 'ruhax/parsers/begin'
 require 'ruhax/parsers/str_concat'
 require 'ruhax/parsers/exec_string'
+require 'ruhax/parsers/array'
 
 require 'ruhax/models/var'
 
