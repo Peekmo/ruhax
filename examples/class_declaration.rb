@@ -8,9 +8,10 @@
 #     my_var += optarg;
 #     Test.static_var = 5;
 #     Test.static_var -=1;
-#     this.final_score = my_var;
 #     var interpol = "test " + arg1 + " interpolation";
-#     return my_var;
+#     interpol = "new_string_sym";
+#     this.final_score = my_var;
+#     return [5, my_var, "string"];
 #   }
 # }
 
