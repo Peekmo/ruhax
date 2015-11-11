@@ -55,7 +55,7 @@ module Ruhax
         parser = ReturnParser.new(node, options)
 
       # String interpolation
-      when :dstr
+      when :dstr, :dsym
         parser = StrConcatParser.new(node, options)
 
       # Else, error
