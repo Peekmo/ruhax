@@ -21,7 +21,7 @@ module Ruhax
       case @type
       when :nil
         @content = "null"
-      when :str
+      when :str, :sym
         @content << "\"" << @node.children[0].to_s << "\""
       else
         @content = @node.children[0].to_s

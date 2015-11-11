@@ -39,7 +39,7 @@ module Ruhax
         parser = FunctionParser.new(node, options)
 
       # Basic types
-      when :str, :int, :float, :true, :false, :nil
+      when :str, :int, :float, :true, :false, :nil, :sym
         parser = BaseTypeParser.new(node, node.type)
 
       # Blocks
