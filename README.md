@@ -21,6 +21,8 @@ trace("Hello World");
 
 Add ```--debug``` flag to get AST of the file
 
+Note : You'll need at least ruby 2.2
+
 ## Development
 
 Everything is build on top of [whitequark parser](https://github.com/whitequark/parser/blob/master/doc/AST_FORMAT.md) to get AST nodes. Feel free to read it and to try to improve it ;)
