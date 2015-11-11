@@ -15,16 +15,21 @@ module Ruhax
     # Process parsing
     ###
     def parse
-      @node.children.each do |child|
+      previous_type = nil
+      @node.children.each_with_index do |child, index|
         result = parse_new_node(child, @options.merge({
           no_new_lines: true
         })).to_s
 
         if child.type != :str
-          @content << " + " << result << " + "
+          @content << " + " if previous_type == :str
+          @content << result
+          @content << " + " if index != @node.children.length - 1
         else
           @content << result
         end
+
+        previous_type = child.type
       end
     end
 
