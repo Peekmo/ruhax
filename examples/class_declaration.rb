@@ -9,9 +9,20 @@
 #     Test.static_var = 5;
 #     Test.static_var -=1;
 #     var interpol = "test " + arg1 + " interpolation";
+#     interpol = "test " + arg1;
+#     interpol = arg1 + " interpolation";
+#     interpol = arg1;
 #     interpol = "new_string_sym";
 #     this.final_score = my_var;
 #     return [5, my_var, "string"];
+#   }
+#
+#   public function regexp() {
+#     var value = "ok";
+#     var regexp = new EReg("^test" + value,"im");
+#     regexp = new EReg(value,"im");
+#     regexp = new EReg("^" + value + "test","im");
+#     return regexp = new EReg("^test" + value + "test","im");
 #   }
 # }
 
@@ -27,10 +38,21 @@ class Test
 
 
     interpol = "test #{arg1} interpolation"
+    interpol = "test #{arg1}"
+    interpol = "#{arg1} interpolation"
+    interpol = "#{arg1}"
     interpol = :new_string_sym
 
     @final_score = my_var
 
     [5, my_var, "string"]
+  end
+
+  def regexp
+    value = "ok"
+    regexp = /^test#{value}/im
+    regexp = /#{value}/im
+    regexp = /^#{value}test/im
+    regexp = /^test#{value}test/im
   end
 end

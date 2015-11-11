@@ -30,6 +30,10 @@ module Ruhax
       when :array
         parser = ArrayParser.new(node, options)
 
+      # Regexp
+      when :regexp
+        parser = RegexpParser.new(node, options)
+
       # Assign var
       when :lvasgn, :ivasgn, :cvasgn
         parser = VarParser.new(node, options)
