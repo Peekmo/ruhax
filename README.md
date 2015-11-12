@@ -22,6 +22,7 @@ trace("Hello World");
 Add ```--debug``` flag to get AST of the file
 
 Note : You'll need at least ruby 2.2
+Don't forget to use ```bin/setup``` to install projects dependencies (You'll need bundler)
 
 ## Development
 
