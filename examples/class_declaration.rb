@@ -13,6 +13,17 @@
 #     interpol = arg1 + " interpolation";
 #     interpol = arg1;
 #     interpol = "new_string_sym";
+#     my_var = my_var == 3 ? 0 : 1;
+#     if (my_var == 0) {
+#
+#       trace("foo");
+#       trace("bar");
+#
+#     else {
+#
+#       trace("else");
+#
+#     }
 #     this.final_score = my_var;
 #     return [5, my_var, "string"];
 #   }
@@ -35,12 +46,19 @@ class Test
     @@static_var = 5
     @@static_var -= 1
 
-
     interpol = "test #{arg1} interpolation"
     interpol = "test #{arg1}"
     interpol = "#{arg1} interpolation"
     interpol = "#{arg1}"
     interpol = :new_string_sym
+
+    my_var = my_var == 3 ? 0 : 1
+    if my_var == 0
+      puts "foo"
+      puts "bar"
+    else
+      puts "else"
+    end
 
     @final_score = my_var
 
