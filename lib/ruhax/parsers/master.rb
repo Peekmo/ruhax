@@ -73,6 +73,10 @@ module Ruhax
       when :xstr
         parser = ExecStringParser.new(node, options)
 
+      # Condition
+      when :if
+        parser = ConditionParser.new(node, options)
+
       # Else, error
       else
         raise "Unsupported type " + node.type.to_s

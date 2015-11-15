@@ -1,5 +1,6 @@
 require 'thor'
 require 'parser/current'
+
 require 'ruhax/parsers/master'
 require 'ruhax/parsers/base_type'
 require 'ruhax/parsers/call'
@@ -14,6 +15,7 @@ require 'ruhax/parsers/str_concat'
 require 'ruhax/parsers/exec_string'
 require 'ruhax/parsers/array'
 require 'ruhax/parsers/regexp'
+require 'ruhax/parsers/condition'
 
 require 'ruhax/models/var'
 

@@ -35,6 +35,10 @@ module Ruhax
       end
     end
 
+    def count_nodes
+      return @node.children.length
+    end
+
     ###
     # Return string value of the parser
     ###
