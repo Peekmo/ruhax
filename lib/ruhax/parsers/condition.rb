@@ -31,16 +31,26 @@ module Ruhax
 
       # Multiple instructions if statement
       if count_nodes > 1
-        @condition = "if (" + @condition + ") {\n\n"
+        @condition = "if (" + @condition + ") {\n"
+        has_begin = false # For elsif
+
         children.each_with_index do |child, index|
           if child.is_a? AST::Node
-              if index == 1
-                @content << "else {\n\n"
-                @content << parse_new_node(child).to_s
-              else
-                @content << parse_new_node(child).to_s
+             # Elsif operator
+            if child.type == :if && children.length > 1 && has_begin
+              @content << "else "
+              @content << parse_new_node(child).to_s
+             # Else
+            elsif index == children.length - 1 && children.length > 1
+              @content << "\n} else {\n"
+              @content << parse_new_node(child).to_s
+            else
+              if child.type == :begin
+                has_begin = true
               end
-              @content << "\n"
+
+              @content << parse_new_node(child).to_s
+            end
           end
         end
       else # Ternary operator

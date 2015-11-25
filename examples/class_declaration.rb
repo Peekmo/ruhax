@@ -55,7 +55,14 @@ class Test
     my_var = my_var == 3 ? 0 : 1
     if my_var == 0
       puts "foo"
-      puts "bar"
+
+      if interpol == :new_string_sym
+        puts "ok"
+      end
+    elsif my_var >= 1
+      if my_var >= 2
+        puts "sub if"
+      end
     else
       puts "else"
     end
