@@ -38,7 +38,7 @@ module Ruhax
           if child.is_a? AST::Node
              # Elsif operator
             if child.type == :if && children.length > 1 && has_begin
-              @content << "else "
+              @content << "} else "
               @content << parse_new_node(child).to_s
              # Else
             elsif index == children.length - 1 && children.length > 1

@@ -1,3 +1,6 @@
+# METTRE À JOUR L'EXEMPLE
+#
+#
 # class Test{
 #   public var final_score : Dynamic;
 #   public static var static_var = 0;
@@ -15,17 +18,18 @@
 #     interpol = "new_string_sym";
 #     my_var = my_var == 3 ? 0 : 1;
 #     if (my_var == 0) {
-#
 #       trace("foo");
-#       trace("bar");
-#
-#     else {
-#
-#       trace("else");
-#
+#       if (interpol == "new_string_sym") {
+#         trace("ok");
+#       }
 #     }
-#     this.final_score = my_var;
-#     return [5, my_var, "string"];
+#     else if (my_var >= 1) {
+#       if (my_var >= 2) {
+#         trace("sub if");
+#       }
+#     } else {
+#       trace("else");
+#     }
 #   }
 #
 #   public function regexp() {
