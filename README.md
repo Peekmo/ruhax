@@ -1,6 +1,6 @@
 # Ruhax
 
-[![Join the chat at https://gitter.im/Peekmo/ruhax](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Peekmo/ruhax?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/Peekmo/ruhax](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Peekmo/ruhax?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Travis](https://travis-ci.org/Peekmo/ruhax.svg)](https://travis-ci.org/Peekmo/ruhax/builds)
 
 Pur ruby code compiled into haxe code
 
