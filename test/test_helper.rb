@@ -1,7 +1,7 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'ruhax'
 require 'minitest/autorun'
-
+require 'coveralls'
 require 'parser/current'
 
 require 'ruhax/parsers/master'
@@ -21,6 +21,8 @@ require 'ruhax/parsers/regexp'
 require 'ruhax/parsers/condition'
 
 require 'ruhax/models/var'
+
+Coveralls.wear!
 
 class RuhaxTester < Minitest::Test
   def check_return(ruby, haxe)
