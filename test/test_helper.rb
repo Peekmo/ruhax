@@ -38,6 +38,6 @@ class RuhaxTester < Minitest::Test
     clean_result = result.gsub "\n", ""
     clean_result = clean_result.gsub " ", ""
 
-    assert_equal clean_result, clean_haxe
+    assert_equal clean_haxe, clean_result
   end
 end
