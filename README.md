@@ -24,6 +24,10 @@ Add ```--debug``` flag to get AST of the file
 Note : You'll need at least ruby 2.2
 Don't forget to use ```bin/setup``` to install projects dependencies (You'll need bundler)
 
+## Tests
+
+To use tests, just use the given command : ```rake test```
+
 ## Development
 
 Everything is build on top of [whitequark parser](https://github.com/whitequark/parser/blob/master/doc/AST_FORMAT.md) to get AST nodes. Feel free to read it and to try to improve it ;)
