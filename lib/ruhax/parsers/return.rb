@@ -25,7 +25,7 @@ module Ruhax
         end
       end
 
-      @content << ";"
+      @content << ";" unless @content[-1, 1] == ";"
     end
 
     ###

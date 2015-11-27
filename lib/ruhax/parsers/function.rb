@@ -67,7 +67,7 @@ module Ruhax
           @content << parse_new_node(child, @locale_options).to_s
 
           if !has_block
-            @content << ";"
+            @content << ";" unless @content[-1, 1] == ";"
           end
         end
       end
