@@ -26,7 +26,7 @@ class MethodTest < RuhaxTester
     ruby = %q(
       class Test
         def initialize
-          puts "init"
+          test()
         end
         def test
           puts "test"
@@ -35,16 +35,13 @@ class MethodTest < RuhaxTester
         def hello
           puts "Hello World"
         end
-        def self.main()
-          test()
-        end
       end
     )
 
     haxe = %q(
       class Test {
         public function new() {
-          return trace("init");
+          return test();
         }
         public function test() {
           trace("test");
@@ -52,9 +49,6 @@ class MethodTest < RuhaxTester
         }
         public function hello() {
           return trace("Hello World");
-        }
-        public static function main() {
-          return test();
         }
       }
     )
