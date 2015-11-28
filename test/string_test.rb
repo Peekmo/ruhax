@@ -63,4 +63,27 @@ class StringTest < RuhaxTester
 
     check_return ruby, haxe
   end
+
+  def test_exec_string
+    ruby = %q(
+      class Test
+        def self.main()
+          `ls -al`
+          %x(ls -al)
+        end
+      end
+    )
+
+    haxe = %q(
+      class Test {
+        public function new() {}
+        public static function main() {
+          Sys.command("ls", ["-al"]);
+          return Sys.command("ls", ["-al"]);
+        }
+      }
+    )
+
+    check_return ruby, haxe
+  end
 end

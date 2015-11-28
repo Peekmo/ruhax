@@ -55,7 +55,7 @@ module Ruhax
     ###
     def build_content(args)
       if args.length > 0
-        @content << "Sys.command(" << args.shift << ", [" << args.join(",") << "]);\n"
+        @content << "Sys.command(" << args.shift << ", [" << args.join(",") << "]);"
       end
     end
   end
