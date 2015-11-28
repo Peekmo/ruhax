@@ -68,7 +68,7 @@ class StringTest < RuhaxTester
     ruby = %q(
       class Test
         def self.main()
-          `ls -al`
+          `ls -a -l`
           %x(ls -al)
         end
       end
@@ -78,7 +78,7 @@ class StringTest < RuhaxTester
       class Test {
         public function new() {}
         public static function main() {
-          Sys.command("ls", ["-al"]);
+          Sys.command("ls", ["-a", "-l"]);
           return Sys.command("ls", ["-al"]);
         }
       }
