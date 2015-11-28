@@ -42,7 +42,7 @@ module Ruhax
         return unless node.children.length > 0
         name = node.children[0].to_s
         name = "this." << name[1..-1] if node.type == :ivar
-        name = options[:current_class] << "." << name[2..-1] if node.type == :cvar
+        name = options[:current_class] + "." + name[2..-1] if node.type == :cvar
 
         return name
 
