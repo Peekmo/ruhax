@@ -8,7 +8,8 @@ module Ruhax
     # Constructor
     def initialize(node, options = {})
       @node = node
-      @options = options
+      @options = options.merge({in_condition: true})
+      @has_elsif = false
       @content = ""
       @condition = ""
       @ternary_true_part = ""
@@ -38,18 +39,19 @@ module Ruhax
           if child.is_a? AST::Node
              # Elsif operator
             if child.type == :if && children.length > 1 && has_begin
+              @has_elsif = true
               @content << "} else "
-              @content << parse_new_node(child).to_s
+              @content << parse_new_node(child, @options).to_s
              # Else
             elsif index == children.length - 1 && children.length > 1
-              @content << "\n} else {\n"
-              @content << parse_new_node(child).to_s
+              @content << "\n} else {\n"
+              @content << parse_new_node(child, @options).to_s
             else
               if child.type == :begin
                 has_begin = true
               end
 
-              @content << parse_new_node(child).to_s
+              @content << parse_new_node(child, @options).to_s
             end
           end
         end
@@ -67,9 +69,9 @@ module Ruhax
       if @ternary_true_part.empty?
         data << @condition
         data << @content
-        data << "\n}"
+        data << "\n}" if !@has_elsif
       else
-        data << @condition + " ? " + @ternary_true_part + " : " + @ternary_false_part
+        data << @condition << " ? " << @ternary_true_part << " : " << @ternary_false_part
       end
       data
     end
